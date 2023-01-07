@@ -9,6 +9,14 @@ terraform {
       source  = "hashicorp/azuread"
       version = "~> 2.31.0"
     }
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+      version = "~> 2.16.1"
+    }
+    helm = {
+      source = "hashicorp/helm"
+      version = "~> 2.8.0"
+    }
   }
   backend "azurerm" {
     storage_account_name = "stfdaksnginxtf"
