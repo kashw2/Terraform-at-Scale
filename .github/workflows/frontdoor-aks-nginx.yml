@@ -22,7 +22,7 @@ jobs:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
     env:
-      TF_ROOT: ./frontdoor-aks-nginx
+      TF_ROOT: .
 
     steps:
       - name: setup infracost
