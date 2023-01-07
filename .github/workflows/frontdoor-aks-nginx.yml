@@ -1,9 +1,5 @@
 name: frontdoor-aks-nginx
 
-defaults:
-  run:
-    working-directory: frontdoor-aks-nginx
-
 on:
   workflow_dispatch:
   pull_request:
@@ -22,7 +18,7 @@ jobs:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
     env:
-      TF_ROOT: .
+      TF_ROOT: frontdoor-aks-nginx
 
     steps:
       - name: setup infracost
@@ -49,10 +45,6 @@ jobs:
   security:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: ./frontdoor-aks-nginx
 
     steps:
       - uses: actions/checkout@v3
@@ -88,6 +80,9 @@ jobs:
         run: tflint -f compact
   plan:
     if: github.event_name != 'push'
+    defaults:
+      run:
+        working-directory: frontdoor-aks-nginx
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID }}
