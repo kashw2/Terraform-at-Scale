@@ -38,3 +38,7 @@ provider "helm" {
     cluster_ca_certificate = base64decode(module.cluster.cluster_ca_certificate)
   }
 }
+
+module "kubernetes" {
+  source = "./modules/kubernetes"
+}

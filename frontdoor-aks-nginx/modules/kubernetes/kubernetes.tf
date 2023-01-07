@@ -1,0 +1,3 @@
+module "namespace" {
+  source = "./namespace"
+}
