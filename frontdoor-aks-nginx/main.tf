@@ -6,12 +6,21 @@ module "resource_group" {
   source = "./modules/resourceGroup"
 }
 
-module "cluster" {
-  source = "./modules/cluster"
-  location = module.resource_group.location
+module "log_analytics_workspace" {
+  source              = "./modules/logAnalyticsWorkspace"
+  location            = module.resource_group.location
   resource_group_name = module.resource_group.name
 
   depends_on = [module.bootstrap, module.resource_group]
+}
+
+module "cluster" {
+  source              = "./modules/cluster"
+  location            = module.resource_group.location
+  resource_group_name = module.resource_group.name
+  workspace_id        = module.log_analytics_workspace.id
+
+  depends_on = [module.bootstrap, module.resource_group, module.log_analytics_workspace]
 }
 
 provider "kubernetes" {
