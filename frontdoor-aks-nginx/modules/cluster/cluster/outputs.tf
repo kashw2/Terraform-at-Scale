@@ -13,3 +13,7 @@ output "cluster_ca_certificate" {
 output "host" {
   value = azurerm_kubernetes_cluster.cluster.kube_config.0.host
 }
+
+output "node_name" {
+  value = azurerm_kubernetes_cluster.cluster.default_node_pool.0.name
+}

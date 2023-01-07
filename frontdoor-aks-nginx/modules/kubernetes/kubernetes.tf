@@ -4,7 +4,15 @@ module "namespace" {
 
 module "helm" {
   source               = "./helm"
-  prometheus_namespace = module.namespace.prometheus_name
+  prometheus_namespace = module.namespace.prometheus
+
+  depends_on = [module.namespace]
+}
+
+module "deployment" {
+  source    = "./deployment"
+  namespace = module.namespace.application
+  node_name = var.node_name
 
   depends_on = [module.namespace]
 }
