@@ -27,6 +27,10 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     }
   }
 
+  oms_agent {
+    log_analytics_workspace_id = var.workspace_id
+  }
+
   identity {
     type = "SystemAssigned"
   }
