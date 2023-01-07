@@ -23,3 +23,10 @@ module "service" {
 
   depends_on = [module.namespace, module.deployment]
 }
+
+module "ingress" {
+  source = "./ingress"
+  namespace = module.namespace.application
+
+  depends_on = [module.namespace, module.service]
+}
