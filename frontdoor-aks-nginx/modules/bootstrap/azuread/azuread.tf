@@ -1,5 +1,5 @@
 resource "azuread_application" "terraform" {
-  display_name = "Terraform (Terraform at Scale)"
+  display_name = "Terraform (frontdoor-aks-nginx) (Terraform at Scale)"
 }
 
 resource "azuread_service_principal" "terraform" {
