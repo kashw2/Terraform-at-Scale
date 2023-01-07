@@ -13,3 +13,7 @@ output "cluster_ca_certificate" {
 output "host" {
   value = module.cluster.host
 }
+
+output "node_name" {
+  value = module.cluster.node_name
+}

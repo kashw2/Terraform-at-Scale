@@ -40,5 +40,8 @@ provider "helm" {
 }
 
 module "kubernetes" {
-  source = "./modules/kubernetes"
+  source    = "./modules/kubernetes"
+  node_name = module.cluster.node_name
+
+  depends_on = [module.bootstrap, module.cluster]
 }
