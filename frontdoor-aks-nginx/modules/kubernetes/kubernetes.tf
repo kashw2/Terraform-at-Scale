@@ -16,3 +16,10 @@ module "deployment" {
 
   depends_on = [module.namespace]
 }
+
+module "service" {
+  source = "./service"
+  namespace = module.namespace.application
+
+  depends_on = [module.namespace, module.deployment]
+}
