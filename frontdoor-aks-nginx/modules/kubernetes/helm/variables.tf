@@ -1,0 +1,1 @@
+variable "prometheus_namespace" {}
