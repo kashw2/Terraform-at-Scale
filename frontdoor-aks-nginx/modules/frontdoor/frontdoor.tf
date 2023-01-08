@@ -16,3 +16,11 @@ module "origin_group" {
 
   depends_on = [module.profile]
 }
+
+module "origin" {
+  source = "./origin"
+  app1_origin_group_id = module.origin_group.app1_id
+  app2_origin_group_id = module.origin_group.app2_id
+
+  depends_on = [module.profile, module.origin_group]
+}
