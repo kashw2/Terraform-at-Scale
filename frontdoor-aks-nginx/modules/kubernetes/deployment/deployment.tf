@@ -4,7 +4,7 @@ resource "kubernetes_deployment_v1" "nginx" {
       "app.kubernetes.io/name"       = "nginx"
       "app.kubernetes.io/version"    = "latest"
       "app.kubernetes.io/component"  = "Default"
-      "app.kubernetes.io/part-of"    = "Didgigo"
+      "app.kubernetes.io/part-of"    = "Terraform at Scale"
       "app.kubernetes.io/managed-by" = "Terraform"
     }
     name      = "nginx"
