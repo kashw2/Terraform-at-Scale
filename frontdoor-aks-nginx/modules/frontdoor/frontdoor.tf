@@ -24,3 +24,10 @@ module "origin" {
 
   depends_on = [module.profile, module.origin_group]
 }
+
+module "endpoint" {
+  source = "./endpoint"
+  profile_id = module.profile.id
+
+  depends_on = [module.profile]
+}
