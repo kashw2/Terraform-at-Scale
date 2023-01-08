@@ -18,14 +18,14 @@ module "deployment" {
 }
 
 module "service" {
-  source = "./service"
+  source    = "./service"
   namespace = module.namespace.application
 
   depends_on = [module.namespace, module.deployment]
 }
 
 module "ingress" {
-  source = "./ingress"
+  source    = "./ingress"
   namespace = module.namespace.application
 
   depends_on = [module.namespace, module.service]

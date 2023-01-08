@@ -45,3 +45,10 @@ module "kubernetes" {
 
   depends_on = [module.bootstrap, module.cluster]
 }
+
+module "frontdoor" {
+  source              = "./modules/frontdoor"
+  resource_group_name = module.resource_group.name
+
+  depends_on = [module.bootstrap, module.resource_group, module.kubernetes]
+}
