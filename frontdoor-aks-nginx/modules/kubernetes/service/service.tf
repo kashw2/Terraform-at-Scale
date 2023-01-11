@@ -14,9 +14,9 @@ resource "kubernetes_service_v1" "nginx" {
   }
 }
 
-resource "kubernetes_service_v1" "app_1" {
+resource "kubernetes_service_v1" "app" {
   metadata {
-    name      = "app1"
+    name      = "app"
     namespace = var.namespace
   }
   spec {
@@ -26,14 +26,14 @@ resource "kubernetes_service_v1" "app_1" {
       target_port = 3000
     }
     selector = {
-      app = "app1"
+      app = "app"
     }
   }
 }
 
-resource "kubernetes_service_v1" "app_2" {
+resource "kubernetes_service_v1" "grafana" {
   metadata {
-    name      = "app2"
+    name      = "grafana"
     namespace = var.namespace
   }
   spec {
@@ -42,7 +42,7 @@ resource "kubernetes_service_v1" "app_2" {
       port = 80
     }
     selector = {
-      app = "app2"
+      app = "grafana"
     }
   }
 }

@@ -75,16 +75,16 @@ resource "kubernetes_deployment_v1" "nginx" {
   }
 }
 
-resource "kubernetes_deployment_v1" "app_1" {
+resource "kubernetes_deployment_v1" "grafana" {
   metadata {
     labels = {
-      "app.kubernetes.io/name"       = "app1"
+      "app.kubernetes.io/name"       = "grafana"
       "app.kubernetes.io/version"    = "latest"
       "app.kubernetes.io/component"  = "Default"
       "app.kubernetes.io/part-of"    = "Terraform-at-Scale"
       "app.kubernetes.io/managed-by" = "Terraform"
     }
-    name      = "app1"
+    name      = "grafana"
     namespace = var.namespace
   }
   spec {
@@ -92,7 +92,7 @@ resource "kubernetes_deployment_v1" "app_1" {
     revision_history_limit = 1
     selector {
       match_labels = {
-        app = "app1"
+        app = "grafana"
       }
     }
     strategy {
@@ -105,7 +105,7 @@ resource "kubernetes_deployment_v1" "app_1" {
     template {
       metadata {
         labels = {
-          app = "app1"
+          app = "grafana"
         }
         namespace = var.namespace
       }
@@ -153,16 +153,16 @@ resource "kubernetes_deployment_v1" "app_1" {
 }
 
 
-resource "kubernetes_deployment_v1" "app_2" {
+resource "kubernetes_deployment_v1" "app" {
   metadata {
     labels = {
-      "app.kubernetes.io/name"       = "app2"
+      "app.kubernetes.io/name"       = "app"
       "app.kubernetes.io/version"    = "latest"
       "app.kubernetes.io/component"  = "Default"
       "app.kubernetes.io/part-of"    = "Terraform-at-Scale"
       "app.kubernetes.io/managed-by" = "Terraform"
     }
-    name      = "app2"
+    name      = "app"
     namespace = var.namespace
   }
   spec {
@@ -170,7 +170,7 @@ resource "kubernetes_deployment_v1" "app_2" {
     revision_history_limit = 1
     selector {
       match_labels = {
-        app = "app2"
+        app = "app"
       }
     }
     strategy {
@@ -183,7 +183,7 @@ resource "kubernetes_deployment_v1" "app_2" {
     template {
       metadata {
         labels = {
-          app = "app2"
+          app = "app"
         }
         namespace = var.namespace
       }

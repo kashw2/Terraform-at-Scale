@@ -18,14 +18,14 @@ resource "kubernetes_ingress_v1" "ingress" {
     }
 
     rule {
-      host = "20.227.13.61"
+      host = "app.mydomain.com"
       http {
         path {
           path      = "/*"
           path_type = "ImplementationSpecific"
           backend {
             service {
-              name = "app1"
+              name = "app"
               port {
                 number = 3000
               }
@@ -36,14 +36,14 @@ resource "kubernetes_ingress_v1" "ingress" {
     }
 
     rule {
-      host = "app2.mydomain.com"
+      host = "grafana.mydomain.com"
       http {
         path {
           path      = "/*"
           path_type = "ImplementationSpecific"
           backend {
             service {
-              name = "app2"
+              name = "grafana"
               port {
                 number = 80
               }
