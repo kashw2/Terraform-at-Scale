@@ -1,3 +1,3 @@
-variable "app1_origin_group_id" {}
+variable "app_origin_group_id" {}
 
-variable "app2_origin_group_id" {}
+variable "grafana_origin_group_id" {}

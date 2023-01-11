@@ -19,8 +19,8 @@ module "origin_group" {
 
 module "origin" {
   source = "./origin"
-  app1_origin_group_id = module.origin_group.app1_id
-  app2_origin_group_id = module.origin_group.app2_id
+  app_origin_group_id = module.origin_group.app_id
+  grafana_origin_group_id = module.origin_group.grafana_id
 
   depends_on = [module.profile, module.origin_group]
 }

@@ -1,5 +1,5 @@
-resource "azurerm_cdn_frontdoor_origin_group" "app_1" {
-  name                     = "app1"
+resource "azurerm_cdn_frontdoor_origin_group" "app" {
+  name                     = "app"
   cdn_frontdoor_profile_id = var.profile_id
   session_affinity_enabled = true
 
@@ -19,8 +19,8 @@ resource "azurerm_cdn_frontdoor_origin_group" "app_1" {
   }
 }
 
-resource "azurerm_cdn_frontdoor_origin_group" "app_2" {
-  name                     = "app2"
+resource "azurerm_cdn_frontdoor_origin_group" "grafana" {
+  name                     = "grafana"
   cdn_frontdoor_profile_id = var.profile_id
   session_affinity_enabled = true
 
