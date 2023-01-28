@@ -53,3 +53,16 @@ module "app_service" {
 
   depends_on = [module.resource_group, module.service_plan]
 }
+
+module "frontdoor" {
+  source              = "./modules/frontdoor"
+  resource_group_name = module.resource_group.au_name
+  dev_au_service_url  = module.app_service.dev_au_service_url
+  dev_us_service_url  = module.app_service.dev_us_service_url
+  test_au_service_url = module.app_service.test_au_service_url
+  test_us_service_url = module.app_service.test_us_service_url
+  prod_au_service_url = module.app_service.prod_au_service_url
+  prod_us_service_url = module.app_service.prod_us_service_url
+
+  depends_on = [module.bootstrap, module.resource_group, module.app_service]
+}
