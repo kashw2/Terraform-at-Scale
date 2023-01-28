@@ -1,7 +1,15 @@
-output "name" {
-  value = azurerm_resource_group.group.name
+output "au_name" {
+  value = azurerm_resource_group.au.name
 }
 
-output "location" {
-  value = azurerm_resource_group.group.location
+output "au_location" {
+  value = azurerm_resource_group.au.location
+}
+
+output "us_name" {
+  value = azurerm_resource_group.us.name
+}
+
+output "us_location" {
+  value = azurerm_resource_group.us.location
 }
