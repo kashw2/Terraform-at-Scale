@@ -5,12 +5,11 @@
 
 ---
 
-**Terraform at Scale** is a project made to provide resources past documentation on how to achieve efficient
-and effective regional or global scale using the Azure platform.
-
-It contains some common and not so common examples of scenarios some engineers may find themselves in when needing
-to take their organisation or hobby to other regions or to a global scale using examples supported by pure Terraform
-with no edge cases requiring management of resources outside of Terraform.
+**Terraform at Scale** provides examples and best practices for using Terraform to manage infrastructure at scale.
+Whether you're an operations engineer, a system administrator, or a DevOps engineer, this repository aims to give you
+insight past the documentation on what it looks like and how to set up a highly scalable, extensible and efficient Azure
+infrastructure using 100% Terraform allowing you to reach regional and global scale for your organisation's or hobby
+projects.
 
 ---
 
