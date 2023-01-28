@@ -31,4 +31,9 @@ resource "azurerm_role_assignment" "terraform" {
   principal_id         = var.service_principal_id
   scope                = data.azurerm_subscription.subscription.id
   role_definition_name = "Contributor"
+
+  lifecycle {
+    prevent_destroy = true
+  }
+
 }
