@@ -41,3 +41,15 @@ module "service_plan" {
 
   depends_on = [module.resource_group]
 }
+
+module "app_service" {
+  source                 = "./modules/appService"
+  au_location            = module.resource_group.au_location
+  au_resource_group_name = module.resource_group.au_name
+  au_service_plan_id     = module.service_plan.au_id
+  us_location            = module.resource_group.us_location
+  us_resource_group_name = module.resource_group.us_name
+  us_service_plan_id     = module.service_plan.us_id
+
+  depends_on = [module.resource_group, module.service_plan]
+}
