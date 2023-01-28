@@ -19,3 +19,13 @@ with no edge cases requiring management of resources outside of Terraform.
 | Name      | Version |
 |-----------|---------|
 | Terraform | 1.0+    |
+
+---
+
+## Examples
+
+- [**Frontdoor + AKS + Nginx Ingress Controller:**](./frontdoor-aks-nginx) This example demonstrates how Terraform is
+  used to facilitate a Frontdoor implementation with Azure Kubernetes Service, and it's Nginx Ingress Controller.
+- [**Frontdoor + App Service:**](./frontdoor-aks-nginx) This example demonstrates how Terraform is used to facilitate a
+  Frontdoor implementation with Dev, Test and Prod App Service deployments in a multi region scenario (United States and
+  Australia)
