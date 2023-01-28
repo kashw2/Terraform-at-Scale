@@ -5,11 +5,13 @@ on:
   pull_request:
     paths:
       - frontdoor-app-service/**
+      - !README.MD
     branches:
       - main
   push:
     paths:
       - frontdoor-app-service/**
+      - !README.MD
     branches:
       - main
 

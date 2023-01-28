@@ -5,11 +5,13 @@ on:
   pull_request:
     paths:
       - frontdoor-aks-nginx/**
+      - !README.MD
     branches:
       - main
   push:
     paths:
       - frontdoor-aks-nginx/**
+      - !README.MD
     branches:
       - main
 
