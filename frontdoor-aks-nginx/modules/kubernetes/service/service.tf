@@ -22,7 +22,7 @@ resource "kubernetes_service_v1" "app" {
   spec {
     type = "ClusterIP"
     port {
-      port = 3000
+      port        = 3000
       target_port = 3000
     }
     selector = {
