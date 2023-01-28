@@ -135,6 +135,12 @@ Azure {
     }
 }
 
-Internet -> Azure.Frontdoor {
+Internet -> Azure.Frontdoor: "prod.mydomain.com" {
+    animated: true
+}
+Internet -> Azure.Frontdoor: "test.mydomain.com" {
+    animated: true
+}
+Internet -> Azure.Frontdoor: "dev.mydomain.com" {
     animated: true
 }
