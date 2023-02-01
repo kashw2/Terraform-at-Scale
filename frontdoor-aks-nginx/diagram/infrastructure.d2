@@ -1,0 +1,48 @@
+direction: right
+
+Internet {
+    shape: image
+    icon: https://img.freepik.com/premium-vector/internet-flat-vector-icon_9206-305.jpg
+}
+
+Azure {
+    Frontdoor {
+        shape: image
+        icon: https://code.benco.io/icon-collection/azure-icons/Front-Doors.svg
+    }
+    Web Application Firewall {
+        shape: image
+        icon: https://code.benco.io/icon-collection/azure-icons/Web-Application-Firewall-Policies(WAF).svg
+    }
+    Australia {
+        Resource Group {
+            Kubernetes {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Kubernetes-Services.svg
+            }
+            Log Analytics Workspace (Dev) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Log-Analytics-Workspaces.svg
+            }
+            Application Insights (Dev) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Application-Insights.svg
+            }
+            Kubernetes -> Application Insights (Dev)
+            Application Insights (Dev) -> Log Analytics Workspace (Dev)
+        }
+    }
+    Frontdoor -- Web Application Firewall {
+        animated: true
+    }
+    Web Application Firewall -> Australia.Resource Group.Kubernetes {
+        animated: true
+    }
+}
+
+Internet -> Azure.Frontdoor: "app.mydomain.com" {
+    animated: true
+}
+Internet -> Azure.Frontdoor: "grafana.mydomain.com" {
+    animated: true
+}
