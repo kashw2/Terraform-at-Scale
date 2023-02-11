@@ -23,3 +23,13 @@ module "application_insights" {
 
   depends_on = [module.resource_group, module.log_analytics_workspace]
 }
+
+module "container_app" {
+  source               = "./modules/containerApp"
+  grafana_workspace_id = module.log_analytics_workspace.grafana_id
+  location             = module.resource_group.location
+  nginx_workspace_id   = module.log_analytics_workspace.nginx_id
+  resource_group_name  = module.resource_group.name
+
+  depends_on = [module.log_analytics_workspace, module.resource_group]
+}
