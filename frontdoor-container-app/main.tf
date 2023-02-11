@@ -33,3 +33,10 @@ module "container_app" {
 
   depends_on = [module.log_analytics_workspace, module.resource_group]
 }
+
+module "frontdoor" {
+  source              = "./modules/frontdoor"
+  resource_group_name = module.resource_group.name
+
+  depends_on = [module.bootstrap, module.resource_group, module.container_app]
+}
