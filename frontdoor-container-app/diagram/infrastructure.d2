@@ -1,0 +1,69 @@
+direction: right
+
+Internet {
+    shape: image
+    icon: https://img.freepik.com/premium-vector/internet-flat-vector-icon_9206-305.jpg
+}
+
+Azure {
+    Frontdoor {
+        shape: image
+        icon: https://code.benco.io/icon-collection/azure-icons/Front-Doors.svg
+    }
+    Web Application Firewall {
+        shape: image
+        icon: https://code.benco.io/icon-collection/azure-icons/Web-Application-Firewall-Policies(WAF).svg
+    }
+    Resource Group {
+        Container App Environment (Grafana) {
+            style.opacity: 0.8
+            Container App {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Container-Instances.svg
+            }
+        }
+        Container App Environment (Nginx) {
+            style.opacity: 0.8
+            Container App {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Container-Instances.svg
+            }
+        }
+        Log Analytics Workspace (Grafana) {
+            shape: image
+            icon: https://code.benco.io/icon-collection/azure-icons/Log-Analytics-Workspaces.svg
+        }
+        Application Insights (Grafana) {
+            shape: image
+            icon: https://code.benco.io/icon-collection/azure-icons/Application-Insights.svg
+        }
+        Log Analytics Workspace (Nginx) {
+            shape: image
+            icon: https://code.benco.io/icon-collection/azure-icons/Log-Analytics-Workspaces.svg
+        }
+        Application Insights (Nginx) {
+            shape: image
+            icon: https://code.benco.io/icon-collection/azure-icons/Application-Insights.svg
+        }
+        Container App Environment (Grafana).Container App -> Application Insights (Grafana)
+        Application Insights (Grafana) -> Log Analytics Workspace (Grafana)
+        Container App Environment (Nginx).Container App -> Application Insights (Nginx)
+        Application Insights (Nginx) -> Log Analytics Workspace (Nginx)
+    }
+    Frontdoor -- Web Application Firewall {
+        animated: true
+    }
+    Web Application Firewall -> Resource Group.Container App Environment (Grafana) {
+        animated: true
+    }
+    Web Application Firewall -> Resource Group.Container App Environment (Nginx) {
+        animated: true
+    }
+}
+
+Internet -> Azure.Frontdoor: "grafana.mydomain.com" {
+    animated: true
+}
+Internet -> Azure.Frontdoor: "app.mydomain.com" {
+    animated: true
+}
