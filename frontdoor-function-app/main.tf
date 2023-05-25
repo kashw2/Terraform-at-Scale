@@ -44,8 +44,8 @@ module "service_plan" {
   depends_on = [module.resource_group]
 }
 
-module "app_service" {
-  source                 = "./modules/appService"
+module "function_app" {
+  source                 = "./modules/functionApp"
   au_location            = module.resource_group.au_location
   au_resource_group_name = module.resource_group.au_name
   au_service_plan_id     = module.service_plan.au_id
@@ -59,12 +59,12 @@ module "app_service" {
 module "frontdoor" {
   source              = "./modules/frontdoor"
   resource_group_name = module.resource_group.au_name
-  dev_au_service_url  = module.app_service.dev_au_service_url
-  dev_us_service_url  = module.app_service.dev_us_service_url
-  test_au_service_url = module.app_service.test_au_service_url
-  test_us_service_url = module.app_service.test_us_service_url
-  prod_au_service_url = module.app_service.prod_au_service_url
-  prod_us_service_url = module.app_service.prod_us_service_url
+  dev_au_service_url  = module.function_app.dev_au_service_url
+  dev_us_service_url  = module.function_app.dev_us_service_url
+  test_au_service_url = module.function_app.test_au_service_url
+  test_us_service_url = module.function_app.test_us_service_url
+  prod_au_service_url = module.function_app.prod_au_service_url
+  prod_us_service_url = module.function_app.prod_us_service_url
 
-  depends_on = [module.bootstrap, module.resource_group, module.app_service]
+  depends_on = [module.bootstrap, module.resource_group, module.function_app]
 }

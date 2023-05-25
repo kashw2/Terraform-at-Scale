@@ -1,13 +1,13 @@
 resource "azurerm_resource_group" "terraform" {
   location = "East US"
-  name     = "rg-terraform-fdaks"
+  name     = "rg-terraform-fdfa"
 }
 
 resource "azurerm_storage_account" "terraform" {
   account_replication_type = "GRS"
   account_tier             = "Standard"
   location                 = azurerm_resource_group.terraform.location
-  name                     = "stfdaksnginxtf"
+  name                     = "stfdfuncapptf"
   resource_group_name      = azurerm_resource_group.terraform.name
 
   min_tls_version = "TLS1_2"

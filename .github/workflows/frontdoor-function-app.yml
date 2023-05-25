@@ -1,0 +1,101 @@
+name: frontdoor-function-app
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - frontdoor-function-app/**
+    branches:
+      - main
+  push:
+    paths:
+      - frontdoor-function-app/**
+    branches:
+      - main
+
+jobs:
+  security:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: tfsec
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.3.1
+        with:
+          github_token: ${{ github.token }}
+  lint:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/cache@v3
+        name: cache plugin
+        with:
+          path: ~/.tflint.d/plugins
+          key: ${{ matrix.os }}-tflint-${{ hashFiles('.tflint.hcl') }}
+
+      - uses: terraform-linters/setup-tflint@v3
+        with:
+          tflint_version: latest
+
+      - name: show version
+        run: tflint --version
+
+      - name: init
+        run: tflint --init
+
+      - name: lint
+        run: tflint -f compact
+  plan:
+    if: github.event_name != 'push'
+    defaults:
+      run:
+        working-directory: frontdoor-function-app
+    runs-on: ubuntu-latest
+    env:
+      ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.AZ_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
+
+      - name: format
+        run: terraform fmt -recursive
+
+      - name: init
+        run: terraform init
+
+      - name: validate
+        run: terraform validate
+
+      - name: plan
+        run: terraform plan -refresh=false
+#  apply:
+#    if: github.event_name == 'push'
+#    runs-on: ubuntu-latest
+#    env:
+#      ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID }}
+#      ARM_CLIENT_SECRET: ${{ secrets.AZ_CLIENT_SECRET }}
+#      ARM_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID }}
+#      ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID }}
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: hashicorp/setup-terraform@v2
+#
+#      - name: format
+#        run: terraform fmt -recursive
+#
+#      - name: init
+#        run: terraform init
+#
+#      - name: validate
+#        run: terraform validate
+#
+#      - name: apply
+#        run: terraform apply -auto-approve -refresh=false

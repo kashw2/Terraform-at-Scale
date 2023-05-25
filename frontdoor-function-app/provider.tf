@@ -3,24 +3,16 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.57.0"
+      version = "~> 3.43.0"
     }
     azuread = {
       source  = "hashicorp/azuread"
-      version = "~> 2.39.0"
-    }
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "~> 2.20.0"
-    }
-    helm = {
-      source  = "hashicorp/helm"
-      version = "~> 2.9.0"
+      version = "~> 2.33.0"
     }
   }
   backend "azurerm" {
-    storage_account_name = "stfdaksnginxtf"
-    resource_group_name  = "rg-terraform-fdaks"
+    storage_account_name = "stfdfuncapptf"
+    resource_group_name  = "rg-terraform-fdfa"
     container_name       = "terraform"
     key                  = "terraform.tfstate"
   }
