@@ -1,0 +1,146 @@
+direction: right
+
+Internet {
+    shape: image
+    icon: https://img.freepik.com/premium-vector/internet-flat-vector-icon_9206-305.jpg
+}
+
+Azure {
+    Frontdoor {
+        shape: image
+        icon: https://code.benco.io/icon-collection/azure-icons/Front-Doors.svg
+    }
+    Web Application Firewall {
+        shape: image
+        icon: https://code.benco.io/icon-collection/azure-icons/Web-Application-Firewall-Policies(WAF).svg
+    }
+    Australia {
+        Resource Group {
+            Service Plan {
+                icon: https://code.benco.io/icon-collection/azure-icons/App-Service-Plans.svg
+                App Service (Prod) {
+                    shape: image
+                    icon: https://code.benco.io/icon-collection/azure-icons/App-Services.svg
+                }
+                App Service (Test) {
+                    shape: image
+                    icon: https://code.benco.io/icon-collection/azure-icons/App-Services.svg
+                }
+                App Service (Dev) {
+                    shape: image
+                    icon: https://code.benco.io/icon-collection/azure-icons/App-Services.svg
+                }
+            }
+            Log Analytics Workspace (Prod) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Log-Analytics-Workspaces.svg
+            }
+            Application Insights (Prod) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Application-Insights.svg
+            }
+            Log Analytics Workspace (Test) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Log-Analytics-Workspaces.svg
+            }
+            Application Insights (Test) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Application-Insights.svg
+            }
+            Log Analytics Workspace (Dev) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Log-Analytics-Workspaces.svg
+            }
+            Application Insights (Dev) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Application-Insights.svg
+            }
+            Service Plan.App Service (Prod) -> Application Insights (Prod)
+            Application Insights (Prod) -> Log Analytics Workspace (Prod)
+            Service Plan.App Service (Test) -> Application Insights (Test)
+            Application Insights (Test) -> Log Analytics Workspace (Test)
+            Service Plan.App Service (Dev) -> Application Insights (Dev)
+            Application Insights (Dev) -> Log Analytics Workspace (Dev)
+        }
+    }
+    United States {
+        Resource Group {
+            Service Plan {
+                icon: https://code.benco.io/icon-collection/azure-icons/App-Service-Plans.svg
+                App Service (Prod) {
+                    shape: image
+                    icon: https://code.benco.io/icon-collection/azure-icons/App-Services.svg
+                }
+                App Service (Test) {
+                    shape: image
+                    icon: https://code.benco.io/icon-collection/azure-icons/App-Services.svg
+                }
+                App Service (Dev) {
+                    shape: image
+                    icon: https://code.benco.io/icon-collection/azure-icons/App-Services.svg
+                }
+            }
+            Log Analytics Workspace (Prod) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Log-Analytics-Workspaces.svg
+            }
+            Application Insights (Prod) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Application-Insights.svg
+            }
+            Log Analytics Workspace (Test) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Log-Analytics-Workspaces.svg
+            }
+            Application Insights (Test) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Application-Insights.svg
+            }
+            Log Analytics Workspace (Dev) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Log-Analytics-Workspaces.svg
+            }
+            Application Insights (Dev) {
+                shape: image
+                icon: https://code.benco.io/icon-collection/azure-icons/Application-Insights.svg
+            }
+            Service Plan.App Service (Prod) -> Application Insights (Prod)
+            Application Insights (Prod) -> Log Analytics Workspace (Prod)
+            Service Plan.App Service (Test) -> Application Insights (Test)
+            Application Insights (Test) -> Log Analytics Workspace (Test)
+            Service Plan.App Service (Dev) -> Application Insights (Dev)
+            Application Insights (Dev) -> Log Analytics Workspace (Dev)
+        }
+    }
+    Frontdoor -- Web Application Firewall {
+        animated: true
+    }
+    Web Application Firewall -> Australia.Resource Group.Service Plan.App Service (Prod) {
+        animated: true
+    }
+    Web Application Firewall -> Australia.Resource Group.Service Plan.App Service (Test) {
+        animated: true
+    }
+    Web Application Firewall -> Australia.Resource Group.Service Plan.App Service (Dev) {
+        animated: true
+    }
+    Web Application Firewall -> United States.Resource Group.Service Plan.App Service (Prod) {
+        animated: true
+    }
+    Web Application Firewall -> United States.Resource Group.Service Plan.App Service (Test) {
+        animated: true
+    }
+    Web Application Firewall -> United States.Resource Group.Service Plan.App Service (Dev) {
+        animated: true
+    }
+}
+
+Internet -> Azure.Frontdoor: "prod.mydomain.com" {
+    animated: true
+}
+Internet -> Azure.Frontdoor: "test.mydomain.com" {
+    animated: true
+}
+Internet -> Azure.Frontdoor: "dev.mydomain.com" {
+    animated: true
+}
