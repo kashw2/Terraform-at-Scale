@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "terraform" {
   location = "East US"
-  name     = "rg-terraform"
+  name     = "rg-terraform-fdaks"
 }
 
 resource "azurerm_storage_account" "terraform" {

@@ -20,7 +20,7 @@ terraform {
   }
   backend "azurerm" {
     storage_account_name = "stfdaksnginxtf"
-    resource_group_name  = "rg-terraform"
+    resource_group_name  = "rg-terraform-fdaks"
     container_name       = "terraform"
     key                  = "terraform.tfstate"
   }
