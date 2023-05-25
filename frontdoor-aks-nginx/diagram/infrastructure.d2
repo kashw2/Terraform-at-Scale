@@ -33,16 +33,16 @@ Azure {
         }
     }
     Frontdoor -- Web Application Firewall {
-        animated: true
+        style.animated: true
     }
     Web Application Firewall -> Australia.Resource Group.Kubernetes {
-        animated: true
+        style.animated: true
     }
 }
 
 Internet -> Azure.Frontdoor: "app.mydomain.com" {
-    animated: true
+    style.animated: true
 }
 Internet -> Azure.Frontdoor: "grafana.mydomain.com" {
-    animated: true
+    style.animated: true
 }
