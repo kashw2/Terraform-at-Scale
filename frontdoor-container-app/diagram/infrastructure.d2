@@ -51,19 +51,19 @@ Azure {
         Application Insights (Nginx) -> Log Analytics Workspace (Nginx)
     }
     Frontdoor -- Web Application Firewall {
-        animated: true
+        style.animated: true
     }
     Web Application Firewall -> Resource Group.Container App Environment (Grafana) {
-        animated: true
+        style.animated: true
     }
     Web Application Firewall -> Resource Group.Container App Environment (Nginx) {
-        animated: true
+        style.animated: true
     }
 }
 
 Internet -> Azure.Frontdoor: "grafana.mydomain.com" {
-    animated: true
+    style.animated: true
 }
 Internet -> Azure.Frontdoor: "app.mydomain.com" {
-    animated: true
+    style.animated: true
 }
