@@ -4,6 +4,8 @@ module "bootstrap" {
 
 module "resource_group" {
   source = "./modules/resourceGroup"
+
+  depends_on = [module.bootstrap]
 }
 
 module "log_analytics_workspace" {
