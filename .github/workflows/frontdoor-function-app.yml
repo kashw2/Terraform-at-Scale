@@ -54,7 +54,7 @@ jobs:
     if: github.event_name != 'push'
     defaults:
       run:
-        working-directory: frontdoor-function-app
+        working-directory: azure/frontdoor-function-app
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID }}

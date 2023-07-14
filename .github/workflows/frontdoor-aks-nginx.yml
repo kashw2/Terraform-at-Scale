@@ -54,7 +54,7 @@ jobs:
     if: github.event_name != 'push'
     defaults:
       run:
-        working-directory: frontdoor-aks-nginx
+        working-directory: azure/frontdoor-aks-nginx
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID }}
