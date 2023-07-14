@@ -25,14 +25,14 @@ projects.
 
 ## Examples
 
-- [**Frontdoor + AKS + Nginx Ingress Controller:**](./frontdoor-aks-nginx) This example demonstrates how Terraform is
+- [**Frontdoor + AKS + Nginx Ingress Controller:**](./azure/frontdoor-aks-nginx) This example demonstrates how Terraform is
   used to facilitate a Frontdoor implementation with Azure Kubernetes Service, and it's Nginx Ingress Controller.
-- [**Frontdoor + App Service:**](./frontdoor-app-service) This example demonstrates how Terraform is used to facilitate
+- [**Frontdoor + App Service:**](./azure/frontdoor-app-service) This example demonstrates how Terraform is used to facilitate
   a Frontdoor implementation with Dev, Test and Prod App Service deployments in a multi region scenario (United States
   and Australia).
-- [**Frontdoor + Function App:**](./frontdoor-function-app) This example demonstrates how Terraform is used to facilitate
+- [**Frontdoor + Function App:**](./azure/frontdoor-function-app) This example demonstrates how Terraform is used to facilitate
   a Frontdoor implementation with Dev, Test and Prod Function App deployments in a multi region scenario (United States
   and Australia).
-- [**Frontdoor + Container App:**](./frontdoor-container-app) This example demonstrates how Terraform is used to
+- [**Frontdoor + Container App:**](./azure/frontdoor-container-app) This example demonstrates how Terraform is used to
   facilitate a Frontdoor implementation with two Container App deployments in a single region. Its purpose is to
   demonstrate the connection between the two services.
