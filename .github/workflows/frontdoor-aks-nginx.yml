@@ -63,7 +63,7 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID }}
     steps:
       - uses: actions/checkout@v4
-      - uses: hashicorp/setup-terraform@v2
+      - uses: hashicorp/setup-terraform@v3
 
       - name: format
         run: terraform fmt -recursive
