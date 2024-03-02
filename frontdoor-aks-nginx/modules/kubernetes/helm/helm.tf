@@ -6,7 +6,7 @@ resource "helm_release" "ingress" {
   replace         = true
   atomic          = true
   recreate_pods   = true
-  version         = "4.9.1"
+  version         = "4.10.0"
   set {
     name  = "controller.replicaCount"
     value = "1"
